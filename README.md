@@ -15,7 +15,7 @@ L’orchestrateur IA coordonne plusieurs agents spécialisés (Gmail, Calendar, 
 
 ### 🎬 Vidéo de démonstration
 
-<video controls width="100%" src="demo/multiagent_demo.mp4](https://vimeo.com/manage/videos/1142186208)">
+<video controls width="100%" src="demo/multiagent_demo.mp4](https://vimeo.com/1142186208)">
   Votre navigateur ne supporte pas la lecture vidéo intégrée.
 </video>
 
