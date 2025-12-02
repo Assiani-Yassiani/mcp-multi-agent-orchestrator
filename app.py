@@ -1,17 +1,14 @@
-"""
-🔧 SYSTÈME MULTI-AGENT AVEC CREDENTIALS.JSON
-Utilise credentials.json pour authentifier Gmail et Calendar
-"""
+
 
 import subprocess
 import time
 import os
 
 print("=" * 80)
-print("🧹 NETTOYAGE EN COURS...")
+print(" NETTOYAGE EN COURS...")
 print("=" * 80 + "\n")
 
-# Tuer les processus sur les ports
+
 ports = [10024, 10025, 10026, 10027, 10028]
 for port in ports:
     try:
@@ -27,14 +24,7 @@ print("Nettoyage terminé !\n")
 import warnings
 
 warnings.filterwarnings("ignore")
-"""
-🔧 SYSTÈME MULTI-AGENT - VERSION CORRIGÉE
-Utilise les variables d'environnement pour Gemini API
-"""
 
-import warnings
-
-warnings.filterwarnings("ignore")
 
 import os
 import asyncio
@@ -49,14 +39,13 @@ import nest_asyncio
 import uvicorn
 from datetime import datetime, timedelta, timezone
 from flask import Flask, request, jsonify
-from flask_cors import CORS  # Pour autoriser les requêtes depuis le navigateur
+from flask_cors import CORS  
 
 # ============================================================
 #  CONFIGURATION CRITIQUE - AVANT TOUS LES IMPORTS ADK
 # ============================================================
 
-# Définir l'API key comme variable d'environnement AVANT d'importer Google ADK
-os.environ["GOOGLE_API_KEY"] = "AIzaSyB8mckkmRwHBqyNHIzCB70DPFj2qdgzYM8"
+os.environ["GOOGLE_API_KEY"] = ""
 
 # Maintenant importer Google ADK
 from google.adk.agents import Agent
@@ -101,27 +90,25 @@ load_dotenv()
 print(" Imports terminés !")
 
 # ============================================================
-# 🔐= CONFIGURATION
+# CONFIGURATION
 # ============================================================
 
 MODEL_NAME = "gemini-2.5-flash"
-
-# Configuration des ports
 EMAIL_AGENT_PORT = 10024
 CALENDAR_AGENT_PORT = 10025
 WEB_SEARCH_AGENT_PORT = 10026
 GITHUB_AGENT_PORT = 10027
 ORCHESTRATOR_AGENT_PORT = 10028
 
-# Tokens
+
 GITHUB_TOKEN = os.getenv(
     "GITHUB_TOKEN",
     "",
 )
 
-print("✅ Configuration chargée !")
-print(f"📊 Modèle: {MODEL_NAME}")
-print(f"🔑 API Key configurée via GOOGLE_API_KEY")
+print(" Configuration chargée !")
+print(f" Modèle: {MODEL_NAME}")
+print(f"API Key configurée via GOOGLE_API_KEY")
 print(
     f"🔧 Ports: {EMAIL_AGENT_PORT}, {CALENDAR_AGENT_PORT}, {WEB_SEARCH_AGENT_PORT}, {GITHUB_AGENT_PORT}, {ORCHESTRATOR_AGENT_PORT}"
 )
@@ -180,7 +167,7 @@ else:
     print(" Gmail & Calendar non disponibles")
 
 # ============================================================
-# 📧 FONCTIONS GMAIL
+# FONCTIONS GMAIL
 # ============================================================
 
 
@@ -465,7 +452,7 @@ def calendar_check_availability(date: str) -> str:
 
 
 # ============================================================
-# 🔍 FONCTIONS WEB SEARCH
+# FONCTIONS WEB SEARCH
 # ============================================================
 
 
@@ -487,7 +474,7 @@ def web_search_tool(query: str, max_results: int = 5) -> str:
 
 
 # ============================================================
-# 🐙 FONCTIONS GITHUB
+# FONCTIONS GITHUB
 # ============================================================
 
 
@@ -1298,9 +1285,7 @@ run_agent_in_background(
 time.sleep(15)
 print("Tous les agents sont prêts !\n")
 
-# ============================================================
-# TESTS
-# ============================================================
+
 
 a2a_client = A2ASimpleClient()
 print("Client A2A créé !")
@@ -1354,7 +1339,7 @@ def index():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🤖 Système Multi-Agent</title>
+    <title>Système Multi-Agent</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
@@ -2136,12 +2121,12 @@ Que puis-je faire pour vous ?`, false);
 
 
 # ============================================================
-# 🚀 DÉMARRAGE FLASK
+#  DÉMARRAGE FLASK
 # ============================================================
 
 if __name__ == "__main__":
     print("\n" + "=" * 80)
-    print("🌐 API FLASK DÉMARRÉE")
+    print("API FLASK DÉMARRÉE")
     print("=" * 80)
     print(f"Interface web: http://localhost:5000")
     print(f"API endpoint: http://localhost:5000/api/chat")
