@@ -41,13 +41,11 @@ from datetime import datetime, timedelta, timezone
 from flask import Flask, request, jsonify
 from flask_cors import CORS  
 
-# ============================================================
-#  CONFIGURATION CRITIQUE - AVANT TOUS LES IMPORTS ADK
-# ============================================================
+
 
 os.environ["GOOGLE_API_KEY"] = ""
 
-# Maintenant importer Google ADK
+
 from google.adk.agents import Agent
 from google.adk.agents.remote_a2a_agent import RemoteA2aAgent
 from google.adk.artifacts import InMemoryArtifactService
@@ -55,7 +53,7 @@ from google.adk.memory.in_memory_memory_service import InMemoryMemoryService
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 
-# A2A imports
+
 from a2a.server.apps import A2AStarletteApplication
 from a2a.server.request_handlers import DefaultRequestHandler
 from a2a.server.tasks import InMemoryTaskStore
@@ -74,12 +72,12 @@ from google.adk.a2a.executor.a2a_agent_executor import (
     A2aAgentExecutorConfig,
 )
 
-# Google Auth imports
+
 from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
-# Imports externes
+
 from duckduckgo_search import DDGS
 from github import Github
 from dotenv import load_dotenv
@@ -89,9 +87,7 @@ load_dotenv()
 
 print(" Imports terminés !")
 
-# ============================================================
-# CONFIGURATION
-# ============================================================
+
 
 MODEL_NAME = "gemini-2.5-flash"
 EMAIL_AGENT_PORT = 10024
@@ -113,9 +109,7 @@ print(
     f"🔧 Ports: {EMAIL_AGENT_PORT}, {CALENDAR_AGENT_PORT}, {WEB_SEARCH_AGENT_PORT}, {GITHUB_AGENT_PORT}, {ORCHESTRATOR_AGENT_PORT}"
 )
 
-# ============================================================
-# AUTHENTIFICATION GMAIL + CALENDAR
-# ============================================================
+
 
 GMAIL_SCOPES = [
     "https://www.googleapis.com/auth/gmail.readonly",
